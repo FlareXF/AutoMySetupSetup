@@ -108,7 +108,7 @@ set packpath+=~/.vim
 source ~/.vimrc' > ~/.config/nvim/init.vim"
 	sudo -u $MAINUSER sh -c 'echo "Now, please press ":" key and type PlugInstall, then wait about 1-2 minutes. After everything is installed, press <ESC>, to enter normal mod, and press <ZQ> to exit Vim" | nvim'
 	cd "`eval echo ~$MAINUSER`/.vim/plugged/YouCompleteMe"
-	sudo -u $MAINUSER sh -c 'python3 install.py --clang-completer --ts-completer'
+	python3 install.py --clang-completer --ts-completer
 	sudo -u $MAINUSER sh -c 'echo "
 set preview_images true
 set preview_images_method w3m" > ~/.config/ranger/rc.conf'
