@@ -80,7 +80,7 @@ set -o vi" >> ~/.bashrc
 medium_install(){
 	echo "da"
 	small_intsall 
-	apt-get install wget curl git build-essential python3-pip cmake python3-dev nodejs npm
+	apt-get install -y wget curl git build-essential python3-pip cmake python3-dev nodejs npm
 	sudo -u $USER sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 		   sudo -u $USER echo "
