@@ -123,7 +123,7 @@ large_install(){
 }
 
 if [ $EUID = 0 ]; then
-	MAINUSER = `who am i | awk '{print $1}'`
+	MAINUSER="`who am i | awk '{print $1}'`"
 	if [ $# -ne 0 ]; then
 		echo "$#"
 		echo "$@"
