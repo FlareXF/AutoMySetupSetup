@@ -61,7 +61,7 @@ deb-src http://ftp.debian.org/debian buster-backports main contrib non-free" > /
 	else
 		echo "Your distribution is not Debian!"
 	fi
-
+	apt-get update
 	apt-get -y install vim ranger neovim bash-completion 
 	cd /usr/share/vim/vim8*
 	sudo -u $USER cp defaults.vim ~/.vimrc
