@@ -83,7 +83,7 @@ medium_install(){
 	apt-get install -y wget curl git build-essential python3-pip cmake python3-dev nodejs npm
 	sudo -u $MAINUSER sh -c "curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-		   sudo -u $MAINUSER sh -c "echo '
+	sudo -u $MAINUSER sh -c "echo \"
 call plug#begin('~/.vim/plugged')
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'ycm-core/YouCompleteMe'
@@ -100,7 +100,7 @@ let g:ycm_add_preview_to_completeopt = 0
 
 set tabstop=4
 set shiftwidth=4
-set clipboard+=unnamedplus' >> ~/.vimrc"
+set clipboard+=unnamedplus\" >> ~/.vimrc"
 	sudo -u $MAINUSER sh -c "mkdir ~/.config/nvim ~/.vim ~/.vim/plugged ~/.config/ranger"
 	sudo -u $MAINUSER sh -c "echo '
 set runtimepath+=~/.vim,~/.vim/after
