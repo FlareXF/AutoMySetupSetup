@@ -25,7 +25,7 @@ Try 'setup -h' or 'setup --help' for getting more information"
 }
 
 small_install(){
-	echo "da"
+	apt-get install lsb-release
 	if [ `lsb_release -d | awk '{print $2}'` = "Debian" ];then
 		
 		if [ `lsb_release -r | awk '{print $2}'` = "11" ]; then
@@ -62,7 +62,7 @@ deb-src http://ftp.debian.org/debian buster-backports main contrib non-free" > /
 		echo "Your distribution is not Debian!"
 	fi
 	apt-get update
-	apt-get -y install vim ranger neovim bash-completion 
+	apt-get -y install vim ranger neovim bash-completion
 	cd /usr/share/vim/vim8*
 	sudo -u $MAINUSER sh -c "cp defaults.vim ~/.vimrc"
 	apt-get purge -y vim
@@ -78,7 +78,6 @@ set -o vi' >> ~/.bashrc"
 }
 
 medium_install(){
-	echo "da"
 	small_intsall 
 	apt-get install -y wget curl git build-essential python3-pip cmake python3-dev nodejs npm
 	sudo -u $MAINUSER sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -116,7 +115,6 @@ set preview_images_method w3m" > ~/.config/ranger/rc.conf'
 
 
 large_install(){
-	echo "da"
 	medium_install
 	apt-get install gparted audacious simple-scan orcfreeder qalcualte thunderbird syncthing mupdf gimp handbrake vlc freecad kicad krita telegram-desktop
 
@@ -125,9 +123,6 @@ large_install(){
 if [ $EUID = 0 ]; then
 	MAINUSER="`who am i | awk '{print $1}'`"
 	if [ $# -ne 0 ]; then
-		echo "$#"
-		echo "$@"
-
 		for i in "$@"; do 
 			case $i in
 				-h|--help|-help) help ;;
