@@ -25,7 +25,7 @@ Try 'setup -h' or 'setup --help' for getting more information"
 }
 
 small_install(){
-	apt-get install lsb-release
+	apt-get install lsb-release sudo
 	if [ `lsb_release -d | awk '{print $2}'` = "Debian" ];then
 		
 		if [ `lsb_release -r | awk '{print $2}'` = "11" ]; then
