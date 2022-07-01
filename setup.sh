@@ -67,6 +67,25 @@ deb-src http://ftp.debian.org/debian buster-backports main contrib non-free" > /
 	sudo -u $MAINUSER sh -c "cp defaults.vim ~/.vimrc"
 	apt-get purge -y vim
 	sudo -u $MAINUSER sh -c "echo '
+extract () {
+   if [ -f $1 ] ; then
+      case $1 in
+         *.tar.bz2)   tar xjf $1      ;;
+         *.tar.gz)   tar xzf $1      ;;
+         *.bz2)      bunzip2 $1      ;;
+         *.rar)      rar x $1      ;;
+         *.gz)      gunzip $1      ;;
+         *.tar)      tar xf $1      ;;
+         *.tbz2)      tar xjf $1      ;;
+         *.tgz)      tar xzf $1      ;;
+         *.zip)      unzip $1      ;;
+         *.Z)      uncompress $1   ;;
+         *)         echo "'$1' cannot be extracted via extract()" ;;
+      esac
+   else
+      echo "'$1' is not a valid file"
+   fi
+} 
 alias q='exit'
 alias r='ranger'
 alias v='vim'
